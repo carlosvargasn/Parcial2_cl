@@ -1,0 +1,102 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.4
+-- Dumped by pg_dump version 9.2.4
+-- Started on 2020-07-28 18:01:29
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 169 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1926 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 168 (class 1259 OID 16394)
+-- Name: alumno; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE alumno (
+    idcodigo integer NOT NULL,
+    nombre character varying(30) NOT NULL,
+    carrera character varying(30) NOT NULL,
+    telefono character varying(10)
+);
+
+
+ALTER TABLE public.alumno OWNER TO postgres;
+
+--
+-- TOC entry 1918 (class 0 OID 16394)
+-- Dependencies: 168
+-- Data for Name: alumno; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY alumno (idcodigo, nombre, carrera, telefono) FROM stdin;
+1	carlos vargas nina	informatica	67064564
+2	mayra nora chavez lima	fisioterapia	67645323
+3	alam brito delgado	arquitectura	68523564
+4	armando pardes de las casas	medicina	2364564
+\.
+
+
+--
+-- TOC entry 1915 (class 2606 OID 16400)
+-- Name: alumno_nombre_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY alumno
+    ADD CONSTRAINT alumno_nombre_key UNIQUE (nombre);
+
+
+--
+-- TOC entry 1917 (class 2606 OID 16398)
+-- Name: alumno_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY alumno
+    ADD CONSTRAINT alumno_pkey PRIMARY KEY (idcodigo);
+
+
+--
+-- TOC entry 1925 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2020-07-28 18:01:30
+
+--
+-- PostgreSQL database dump complete
+--
+
